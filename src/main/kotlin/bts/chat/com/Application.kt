@@ -15,5 +15,4 @@ fun Application.module() {
     configureSockets()
     configureSerialization()
     configureRouting()
-    /asdasd
 }
