@@ -8,6 +8,6 @@ import org.litote.kmongo.reactivestreams.KMongo
 
 val appModule = module {
     single {
-        KMongo.createClient().coroutine.getDatabase("bts_chat_db")
+        KMongo.createClient().coroutine.getDatabase("chat_bts_db")
     }
 }

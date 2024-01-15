@@ -9,16 +9,12 @@ class AuthDataStoreImpl(private val database: CoroutineDatabase) : AuthDataStore
     private val users = database.getCollection<UserEntity>()
 
     override suspend fun findUserByEmail(email: String, userName: String): UserEntity? {
-       return users.findOne(
-            Filters.and(
-                Filters.eq("email", email),
-                Filters.eq("userName", userName)
-            )
+        return users.findOne(Filters.eq("email", email),
         )
     }
 
     override suspend fun insert(user: UserEntity): UserEntity {
-         users.insertOne(user)
+        users.insertOne(user)
         return user
     }
 
