@@ -9,5 +9,5 @@ fun SignupRequest.toUserEntity() = UserEntity(
 )
 
 fun UserEntity.toUser() = User(
-    username = this.username, id = this.id, avatar = this.avatar, email = this.email
+    username = this.username, id = this.id, email = this.email
 )

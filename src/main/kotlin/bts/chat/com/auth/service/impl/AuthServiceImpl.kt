@@ -39,6 +39,6 @@ class AuthServiceImpl(private val repository: AuthRepository) : AuthService {
     }
 
     override suspend fun saveUser(request: SignupRequest): User {
-        return repository.insertUser(request.toUserEntity().copy(avatar = UUID.randomUUID().toString()))
+        return repository.insertUser(request.toUserEntity())
     }
 }
