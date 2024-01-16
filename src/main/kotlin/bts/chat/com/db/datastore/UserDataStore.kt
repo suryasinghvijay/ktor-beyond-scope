@@ -10,4 +10,5 @@ interface UserDataStore {
     suspend fun getAllUsers(): List<UserEntity>
 
     suspend fun getChatHistory(userId:String) : List<ChatsDao>
+    suspend fun saveMessageToDb(message: ChatsDao) : String?
 }

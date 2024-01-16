@@ -9,21 +9,18 @@ import bts.chat.com.db.datastore.dao.MessageLocation
 import bts.chat.com.db.datastore.dao.UserEntity
 
 fun Message.toChatEntity() = ChatsDao(
-    messageTo = this.messageTo,
-    messageFrom = this.messageFrom,
+    messageToUserId = this.messageToUserId,
+    messageFromUserId = this.messageFromUserId,
     messageText = this.messageText,
-    timeStamp = this.timeStamp,
-    latLng = MessageLocation(this.latLng.latitude, this.latLng.longitude),
+    timeStamp = System.currentTimeMillis(),
+    latLng = MessageLocation(this.latLng?.latitude, this.latLng?.longitude),
     userName = this.userName,
-    lastSeen = this.lastSeen
 )
 
 fun ChatsDao.toMessage() = Message(
-    messageTo = this.messageTo,
-    messageFrom = this.messageFrom,
+    messageToUserId = this.messageToUserId,
+    messageFromUserId = this.messageFromUserId,
     messageText = this.messageText,
-    timeStamp = this.timeStamp,
-    latLng = Location(this.latLng.latitude, this.latLng.longitude),
+    latLng = Location(this.latLng?.latitude, this.latLng?.longitude),
     userName = this.userName,
-    lastSeen = this.lastSeen
 )
